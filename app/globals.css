@@ -1,0 +1,236 @@
+/* ===========================================================================
+   3D Design Builder / "We Design You Make" — foundation stylesheet
+   Design tokens + base type + shared utility/button/card classes.
+   Fonts are wired in app/layout.tsx via next/font (CSS vars below).
+   =========================================================================== */
+
+:root {
+  /* House style (showcase/HOUSE-STYLE.md): sage #687A64, cream #F0EADC, brass used sparingly. */
+
+  /* --- Foundation neutrals --- */
+  --bg: #f0eadc;
+  --ink: #1a1a1a;
+  --muted: #5f5f5a; /* 5.3:1 on cream, 4.9:1 on surface-3 */
+  --line: #ddd5c4;
+
+  /* --- Surfaces --- */
+  --surface: #ffffff;
+  --surface-2: #f7f3ea;
+  --surface-3: #e8e0cd;
+
+  /* --- Dark stage (showroom / contact blocks): deep sage --- */
+  --stage: #2f3a2e;
+  --stage-gradient: radial-gradient(125% 75% at 50% 30%, #3d4a3b 0%, #2f3a2e 64%);
+  --on-dark: #f0eadc;
+  --on-dark-muted: #c4c8b8;
+  --on-dark-faint: #a8b0a0;
+  --brass: #c9a86a; /* accents on the dark stage only; too pale for text on cream */
+
+  /* --- Accent (sage) — the single per-screen action. White on it is 4.6:1;
+         sage text on cream is 3.8:1, so only at large sizes. --- */
+  --accent: #687a64;
+  --accent-hover: #56664f;
+  --accent-tint: #e8ebe7;
+
+  /* --- Status --- */
+  --success-text: #1c6b34;
+  --success-bg: #e7f3ea;
+  --error-text: #9a3b2f;
+  --error-bg: #fdf4f2;
+  --error-border: #e7c4bc;
+  --warning-bg: #fff7e6;
+  --warning-border: #f0d9a8;
+
+  /* --- Spacing (4px base) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 40px;
+  --space-7: 64px;
+
+  /* --- Radius --- */
+  --radius-card: 12px;
+  --radius-card-lg: 14px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  /* --- Shadow (deliberately flat) --- */
+  --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --shadow-cta: 0 10px 26px rgba(104, 122, 100, 0.35);
+
+  /* --- Type --- */
+  --font-fraunces: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --leading-body: 1.55;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter);
+  font-size: 16px;
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- Headings use Fraunces --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-fraunces);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--ink);
+}
+
+/* ===========================================================================
+   SHARED UTILITY CLASSES (global — apply via className="kicker" etc.)
+   =========================================================================== */
+
+/* Kicker — small uppercase label above a heading. Add .kickerAccent on dark. */
+.kicker {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.kickerAccent {
+  color: var(--brass);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* Lede — intro paragraph under a heading. */
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: var(--leading-body);
+  max-width: 52ch;
+}
+
+/* ===========================================================================
+   BUTTONS
+   Base = .btn. Add ONE variant. Pills, weight 600.
+   - .btn-accent     Sage — the ONE primary action per screen.
+   - .btn-primary    Neutral ink — primary action where accent is NOT used
+                     (white-label /d/[slug], 404/error pages, dark-stage AR).
+   - .btn-secondary  Outline ink — secondary action on light surfaces.
+   - .btn-ghost-dark Transparent w/ light border — secondary action on dark.
+   Add .btn-block for full-width.
+   =========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.05s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.985);
+}
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-cta);
+}
+.btn-accent:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #000;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-secondary:hover {
+  background: var(--surface-3);
+}
+
+.btn-ghost-dark {
+  background: transparent;
+  color: var(--on-dark);
+  border-color: rgba(240, 234, 220, 0.3);
+}
+.btn-ghost-dark:hover {
+  background: rgba(240, 234, 220, 0.08);
+}
+
+/* ===========================================================================
+   CARDS / SURFACES
+   - .card         White surface card with cream outline.
+   - .card-tinted  Deeper cream panel / well.
+   - .card-dark    Dark contact / upsell block.
+   =========================================================================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+.card-tinted {
+  background: var(--surface-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+.card-dark {
+  background: var(--stage);
+  color: var(--on-dark);
+  border-radius: var(--radius-card-lg);
+}

@@ -1,0 +1,48 @@
+{
+  "name": "wedesignyoumake-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "node --test scripts/dns.test.mjs scripts/release.test.mjs",
+    "dns": "node --env-file=.env.local scripts/dns.mjs",
+    "release": "node scripts/release.mjs",
+    "add-design": "node scripts/add-design.mjs",
+    "make-sample": "node scripts/make-sample.mjs",
+    "new-customer": "node scripts/new-customer.mjs",
+    "ingest": "node scripts/ingest-customer.mjs",
+    "test-meshy": "node --env-file=.env.local scripts/test-meshy.mjs",
+    "generate-test": "node --env-file=.env.local scripts/generate-test.mjs"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.3.1",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.4.1",
+    "next": "16.2.9",
+    "qrcode": "^1.5.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-easy-crop": "^6.0.2"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "^4.4.0",
+    "@gltf-transform/core": "^4.4.0",
+    "@gltf-transform/functions": "^4.4.0",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "meshoptimizer": "^1.1.1",
+    "sharp": "^0.34.5",
+    "typescript": "^5"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

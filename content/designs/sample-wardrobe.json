@@ -1,0 +1,19 @@
+{
+  "slug": "sample-wardrobe",
+  "title": "Sample fitted wardrobe",
+  "description": "A three-door fitted wardrobe demo. Open this page on your phone and tap “View in your room” to stand it against your own wall at true size — this is exactly what your clients will see.",
+  "builder": {
+    "name": "We Design You Make"
+  },
+  "dimensionsMm": {
+    "width": 1800,
+    "height": 2400,
+    "depth": 600
+  },
+  "model": {
+    "glb": "/models/sample-wardrobe/model.glb"
+  },
+  "placement": "floor",
+  "qr": "/models/sample-wardrobe/qr.png",
+  "createdAt": "2026-11-05"
+}

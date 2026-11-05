@@ -1,0 +1,244 @@
+/* ===========================================================================
+   /examples — public, filterable gallery of hand-built designs.
+   Phone-first (~390px), responsive up. Presentation only.
+   =========================================================================== */
+
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+}
+
+/* --- Intro --- */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.title {
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-top: var(--space-1);
+}
+
+.lede {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: var(--leading-body);
+  max-width: 46ch;
+}
+
+/* --- Filter chips --- */
+.filters {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  margin-top: var(--space-5);
+  padding-bottom: var(--space-1);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  white-space: nowrap;
+  flex: 0 0 auto;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 9px 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.chip:hover {
+  background: var(--surface-3);
+}
+.chipActive {
+  font-weight: 600;
+  color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.chipActive:hover {
+  background: var(--ink);
+}
+
+/* --- Card grid --- */
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.card {
+  display: block;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* --- Thumbnail (CSS-built placeholder piece) --- */
+.thumb {
+  height: 132px;
+  background: var(--surface-3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.piece {
+  margin-bottom: 12px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #e7dccb, #d8c8af);
+  box-shadow: inset 0 0 0 1px rgba(120, 100, 75, 0.22);
+  display: flex;
+  gap: 3px;
+  padding: 6px;
+}
+.pieceTall {
+  width: 66px;
+  height: 96px;
+}
+.pieceWide {
+  width: 96px;
+  height: 68px;
+}
+.piece[data-shape="wide-split"],
+.piece[data-shape="wide-shelf"] {
+  flex-direction: column;
+}
+
+.panel {
+  flex: 1;
+  border: 1px solid rgba(120, 100, 75, 0.2);
+  border-radius: 2px;
+}
+.piece[data-shape="wide-shelf"] .panel:last-child {
+  flex: 2;
+}
+
+/* --- Card body --- */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 11px 13px 13px;
+}
+
+.pieceName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.builder {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.view {
+  margin-top: var(--space-2);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* --- Coming-soon tile (not yet a real job; non-clickable) --- */
+.cardSoon {
+  composes: card;
+  position: relative;
+  cursor: default;
+  opacity: 0.72;
+}
+.cardSoon:hover {
+  transform: none;
+  box-shadow: none;
+}
+.cardSoon .thumb {
+  filter: grayscale(0.35);
+}
+.soonBadge {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 3px 9px;
+}
+.soonLabel {
+  margin-top: var(--space-2);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* --- Closing dark CTA --- */
+.cta {
+  margin-top: var(--space-7);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 22px;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.ctaText {
+  margin-top: var(--space-2);
+  font-size: 14px;
+  color: var(--on-dark-muted);
+  line-height: var(--leading-body);
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Responsive up --- */
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .title {
+    font-size: 34px;
+  }
+}

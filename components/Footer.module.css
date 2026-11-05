@@ -1,0 +1,45 @@
+.footer {
+  padding: 36px 22px 40px;
+  text-align: center;
+}
+
+.wordmark {
+  font-family: var(--font-fraunces);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.tagline {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  font-size: 12.5px;
+}
+
+.link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.copyright {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 18px;
+}

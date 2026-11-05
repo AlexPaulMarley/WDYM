@@ -1,0 +1,159 @@
+/* ===========================================================================
+   Shared styles for the global App Router state screens:
+   not-found.tsx (404), loading.tsx, error.tsx.
+   Presentation only — reuses global tokens, buttons and the CubeSpinner.
+   =========================================================================== */
+
+.page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 20px 64px;
+}
+
+/* Centred text column so copy wraps like the design (~30ch). */
+.inner {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- 404 ------------------------------------------------------------------ */
+.bigCode {
+  font-family: var(--font-fraunces);
+  font-size: 80px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+.bigCode .mid {
+  color: var(--accent);
+}
+
+/* --- Headings / copy ------------------------------------------------------ */
+.title {
+  font-family: var(--font-fraunces);
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 14px 0 0;
+}
+
+.message {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: var(--leading-body);
+  max-width: 30ch;
+  margin: 9px auto 0;
+}
+
+/* --- Action stack --------------------------------------------------------- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+/* --- Error icon ----------------------------------------------------------- */
+.errorIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-round);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Raw error.message line (functional detail preserved from logic). */
+.errorDetail {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 10px;
+  padding: 11px 13px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--error-text);
+  font-family: var(--font-inter);
+  width: 100%;
+  word-break: break-word;
+}
+
+/* --- Loading skeleton ----------------------------------------------------- */
+.loadWrap {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 26px 0 0;
+}
+
+.skeletons {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.skelRow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px;
+}
+
+.skelThumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
+.skelLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.skelLine {
+  height: 13px;
+  border-radius: 5px;
+}
+.skelLineSm {
+  height: 11px;
+  border-radius: 5px;
+}
+
+/* Shimmer fill shared by every skeleton block. */
+.shimmer {
+  background: linear-gradient(90deg, #f0ede6, #f7f5f0, #f0ede6);
+  background-size: 300px 100%;
+  animation: app-state-shimmer 1.3s linear infinite;
+}
+
+@keyframes app-state-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+  }
+}

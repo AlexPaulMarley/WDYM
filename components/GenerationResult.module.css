@@ -1,0 +1,393 @@
+.main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+}
+
+/* ===========================================================================
+   GENERATING
+   =========================================================================== */
+.generatingStage {
+  background: var(--stage-gradient);
+  background-color: var(--stage);
+  color: var(--on-dark);
+  border-radius: var(--radius-card-lg);
+  padding: 48px 26px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waitTitle {
+  color: var(--on-dark);
+  font-size: 24px;
+  margin-top: 22px;
+}
+
+.waitMsg {
+  color: var(--on-dark-muted);
+  font-size: 14px;
+  margin-top: 8px;
+  max-width: 30ch;
+  min-height: 1.4em;
+}
+
+.progressTrack {
+  width: 100%;
+  max-width: 320px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width 0.6s ease;
+}
+
+.finePrint {
+  font-size: 12px;
+  color: var(--on-dark-faint);
+  margin-top: 12px;
+}
+
+/* Polling gave up (10 min) — reassure, don't alarm. */
+.stalledNote {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--on-dark-muted);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 14px;
+  max-width: 34ch;
+}
+.stalledNote a {
+  color: var(--on-dark);
+  font-weight: 600;
+}
+
+/* Step checklist */
+.steps {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 4px 4px 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.stepMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.done .stepMark {
+  color: var(--success-text);
+}
+
+.stepLabel {
+  flex: 1;
+}
+
+.current .stepLabel {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pending {
+  color: #9a948a;
+}
+
+.stepDot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  border: 2px solid #d8d2c8;
+}
+
+.stepSpinner {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--accent);
+  border-top-color: transparent;
+  display: inline-block;
+  animation: result-spin 0.9s linear infinite;
+}
+
+@keyframes result-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepSpinner {
+    animation-duration: 2.5s;
+  }
+}
+
+/* ===========================================================================
+   FAILED
+   =========================================================================== */
+.failCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 8px;
+}
+
+.failIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-round);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+}
+
+.failTitle {
+  font-size: 23px;
+  margin-top: 20px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 34ch;
+  margin-top: 10px;
+}
+
+.reassure {
+  width: 100%;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--error-text);
+}
+
+.failActions {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.failFallback {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: var(--leading-body);
+}
+
+.accentLink {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.accentLink:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================================================
+   READY
+   =========================================================================== */
+.resultHeader {
+  margin-bottom: 16px;
+}
+
+.resultHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.resultHeader h1 {
+  font-size: clamp(24px, 5vw, 32px);
+  line-height: 1.15;
+}
+
+.viewerWrap {
+  --mv-height: min(56vh, 460px);
+  --mv-min-height: 320px;
+  position: relative;
+}
+
+.sizeCaption {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink);
+  text-align: center;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.warn {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--error-text);
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Honest, quiet note about how AR size behaves per platform. */
+.arNote {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 13px;
+}
+
+/* Dimensions strip */
+.dims {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dimCard {
+  flex: 1;
+  min-width: 80px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px;
+  text-align: center;
+}
+
+.dimLabel {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.dimValue {
+  display: block;
+  font-family: var(--font-fraunces);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.dimsUnit {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #9a948a;
+  margin-top: 1px;
+}
+
+/* QR block */
+.qrCard {
+  margin-top: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.qr {
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px;
+  background: #fff;
+}
+
+.qrTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.qrText {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+/* Upsell (dark) */
+.upsell {
+  margin-top: 22px;
+  padding: 22px;
+}
+
+.upsellTitle {
+  color: #fff;
+  font-size: 21px;
+  line-height: 1.15;
+  margin-top: 7px;
+}
+
+.upsellText {
+  font-size: 13.5px;
+  color: var(--on-dark-muted);
+  line-height: var(--leading-body);
+  margin: 9px 0 16px;
+}
+
+.secondaryActions {
+  margin-top: 14px;
+}
+
+.footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}

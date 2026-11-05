@@ -1,0 +1,117 @@
+/* ===========================================================================
+   /privacy — long-form GDPR reading page.
+   ~640px reading column, house-style type (Fraunces headings / Inter body).
+   Pure reading page: no accent colour — links read as neutral ink.
+   =========================================================================== */
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+/* --- Back link (neutral, muted) --- */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space-5);
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+/* --- Title block --- */
+.head {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.wrap h1 {
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.updated {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* --- Section headings --- */
+.wrap h2 {
+  font-size: 21px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+/* --- Body copy --- */
+.wrap p {
+  font-size: 16px;
+  line-height: var(--leading-body);
+  color: var(--ink);
+  margin-bottom: var(--space-3);
+}
+
+.wrap ul {
+  margin: 0 0 var(--space-3) var(--space-4);
+}
+
+.wrap li {
+  line-height: var(--leading-body);
+  margin-bottom: var(--space-1);
+}
+
+.wrap li::marker {
+  color: var(--muted);
+}
+
+.wrap strong {
+  font-weight: 600;
+}
+
+/* --- Inline links: neutral ink, underlined (no accent) --- */
+.wrap a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.wrap a:hover {
+  text-decoration-color: var(--ink);
+}
+
+/* --- Contact card (white surface, beige outline) --- */
+.contact {
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.contact p {
+  margin-bottom: 0;
+}
+
+.contact a {
+  font-weight: 600;
+}

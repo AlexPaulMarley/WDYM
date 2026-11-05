@@ -1,0 +1,156 @@
+/* Login /login — dark house-style magic-link sign-in. Phone-first. */
+
+.page {
+  min-height: 100vh;
+  background: var(--stage);
+  background-image: var(--stage-gradient);
+  color: var(--on-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+}
+
+.brand {
+  font-family: var(--font-fraunces);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--on-dark);
+  margin-bottom: var(--space-6);
+}
+.brandAccent {
+  color: var(--accent);
+}
+
+.panel {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+.panelCenter {
+  text-align: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-align: center;
+  color: var(--on-dark);
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--on-dark-muted);
+  line-height: 1.55;
+  text-align: center;
+  margin-top: var(--space-2);
+  max-width: 32ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.emailShown {
+  color: var(--on-dark);
+  font-weight: 600;
+}
+
+/* --- Email field --- */
+.label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #cfc7bc;
+  margin-top: var(--space-5);
+  display: block;
+}
+.field {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-card);
+  margin-top: var(--space-2);
+  padding: 0 15px;
+  transition: border-color 0.15s ease;
+}
+.field:focus-within {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  padding: 15px 0;
+  color: var(--on-dark);
+}
+.input::placeholder {
+  color: var(--on-dark-faint);
+}
+
+/* --- Fine print --- */
+.fine {
+  font-size: 11.5px;
+  color: var(--on-dark-faint);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: var(--space-4);
+}
+.fineLink {
+  color: #cfc7bc;
+  text-decoration: underline;
+}
+
+/* --- Sent view --- */
+.successRing {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background: rgba(28, 107, 52, 0.16);
+  border: 1px solid rgba(28, 107, 52, 0.4);
+  color: #5fbf80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.resend {
+  font-size: 13px;
+  color: var(--on-dark-faint);
+  margin-top: var(--space-4);
+}
+
+.linkBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-inter);
+  color: #cfc7bc;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.backBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-inter);
+  color: var(--on-dark-faint);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: var(--space-3);
+}
+.backBtn:hover {
+  color: var(--on-dark-muted);
+}

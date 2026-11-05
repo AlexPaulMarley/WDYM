@@ -1,0 +1,121 @@
+.viewer {
+  width: 100%;
+  /* Parents size the viewer via CSS variables (set on any ancestor); the
+     defaults preserve the original behaviour. */
+  height: var(--mv-height, 100%);
+  min-height: var(--mv-min-height, 420px);
+  display: block;
+  border-radius: var(--radius-card-lg);
+}
+
+/* Dark showroom stage (result / landing). */
+.stageDark {
+  background: var(--stage-gradient);
+  background-color: var(--stage);
+}
+
+/* Neutral premium stage (white-label). */
+.stageNeutral {
+  background: radial-gradient(120% 80% at 50% 32%, #ffffff 0%, var(--surface-3) 100%);
+  background-color: var(--surface-3);
+}
+
+.arButton {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 14px 28px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.arButton:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+/* Sage — result / landing primary action. */
+.arAccent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-cta);
+}
+.arAccent:hover {
+  background: var(--accent-hover);
+}
+
+/* Neutral ink — white-label /d/[slug] primary action. */
+.arInk {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.arInk:hover {
+  background: #000;
+}
+
+/* White pill — for use against a busy/dark stage when neutral is wanted. */
+.arLight {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.banner p {
+  margin: 0;
+  flex: 1;
+}
+
+.copyButton {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fallback {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--surface-3);
+  border-radius: var(--radius-card-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.fallbackPoster {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+}
+
+.arFailed {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
